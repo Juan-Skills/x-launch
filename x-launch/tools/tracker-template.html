@@ -1,0 +1,330 @@
+<title>__TITLE__</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* A quiet planning tool: a thin bar on top, one step at a time in the middle, the full list one click away. */
+:root {
+  --fond: #ffffff; --surface: #f7f7f8; --survol: #f1f1f3; --trait: #e7e7ea; --encre: #0f1013; --doux: #6b6e76; --pale: #a0a3ab;
+  --accent: #3657f2; --accent-doux: #eef1fe; --accent-encre: #ffffff;
+  --ok: #17803d; --ok-doux: #e8f5ec; --retard: #d93036; --retard-doux: #fdecec; --attente: #a15c07; --attente-doux: #fdf3e2;
+  --ombre: 0 1px 2px rgba(15, 16, 19, .04), 0 4px 16px rgba(15, 16, 19, .05);
+  --titre: "Inter Tight", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --texte: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --fond: #0e0f11; --surface: #16171a; --survol: #1c1d21; --trait: #26282d; --encre: #ededef; --doux: #9a9da6; --pale: #62656d;
+  --accent: #7d93ff; --accent-doux: #1b2140; --accent-encre: #0e0f11;
+  --ok: #4cc27a; --ok-doux: #15291c; --retard: #ff6b6f; --retard-doux: #3a1719; --attente: #f0b45a; --attente-doux: #33260f;
+  --ombre: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --fond: #0e0f11; --surface: #16171a; --survol: #1c1d21; --trait: #26282d; --encre: #ededef; --doux: #9a9da6; --pale: #62656d;
+  --accent: #7d93ff; --accent-doux: #1b2140; --accent-encre: #0e0f11;
+  --ok: #4cc27a; --ok-doux: #15291c; --retard: #ff6b6f; --retard-doux: #3a1719; --attente: #f0b45a; --attente-doux: #33260f;
+  --ombre: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25); color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--fond); color: var(--encre); font: 15px/1.55 var(--texte); -webkit-font-smoothing: antialiased }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--fond) }
+button { font: inherit; color: inherit }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px }
+.cadre { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums }
+
+/* Barre du haut */
+.barre { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--fond); border-bottom: 1px solid var(--trait) }
+.barre-in { max-width: 1120px; margin: 0 auto; height: 56px; display: flex; align-items: center; gap: 16px }
+.marque { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1 }
+.pastille-nom { width: 26px; height: 26px; border-radius: 7px; background: var(--encre); color: var(--fond); display: grid; place-items: center; font: 600 .8rem var(--titre); flex: none }
+.marque b { font: 600 .95rem var(--titre); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.marque span { color: var(--doux); font-size: .85rem; white-space: nowrap }
+.bascule { display: inline-flex; padding: 3px; background: var(--surface); border: 1px solid var(--trait); border-radius: 9px; flex: none }
+.bascule button { border: 0; background: none; padding: 5px 12px; border-radius: 6px; font-size: .85rem; font-weight: 500; color: var(--doux); cursor: pointer }
+.bascule button[aria-pressed="true"] { background: var(--fond); color: var(--encre); box-shadow: var(--ombre) }
+.compteur { display: flex; align-items: center; gap: 10px; flex: none; justify-content: flex-end; flex: 1 }
+.puce { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; border: 1px solid var(--trait); font-size: .82rem; white-space: nowrap }
+.puce i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent) }
+.phases { max-width: 1120px; margin: 0 auto; display: flex; gap: 4px; padding: 10px 0 12px }
+.phases button { flex: var(--n) 1 0; min-width: 0; border: 0; background: none; padding: 0; cursor: pointer; text-align: left; display: grid; gap: 6px }
+.phases .jauge { height: 4px; border-radius: 99px; background: var(--trait); overflow: hidden }
+.phases .jauge i { display: block; height: 100%; background: var(--encre); border-radius: 99px }
+.phases button.ici .jauge { outline: 2px solid var(--accent-doux) }
+.phases button.ici .jauge i { background: var(--accent) }
+.phases small { font-size: .72rem; color: var(--doux); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.phases button.ici small { color: var(--encre); font-weight: 500 }
+
+/* Écran focus */
+.scene { max-width: 760px; margin: 0 auto; padding-block: clamp(28px, 6vh, 64px) 120px }
+.sur { font-size: .78rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--doux); display: flex; gap: 10px; flex-wrap: wrap }
+.quand { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 6px }
+.quand .t { font: 700 clamp(3rem, 11vw, 5.6rem)/.95 var(--titre); letter-spacing: -.035em }
+.quand .d { color: var(--doux); font-size: 1.05rem }
+.etat { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 99px; font-size: .8rem; font-weight: 500; background: var(--surface); color: var(--doux) }
+.etat.done { background: var(--ok-doux); color: var(--ok) }
+.etat.retard, .etat.blocked { background: var(--retard-doux); color: var(--retard) }
+.etat.bientot { background: var(--accent-doux); color: var(--accent) }
+.etat.doing { background: var(--attente-doux); color: var(--attente) }
+h1 { font: 600 clamp(1.6rem, 4.4vw, 2.3rem)/1.15 var(--titre); letter-spacing: -.02em; margin: 22px 0 12px; text-wrap: balance }
+.pourquoi { font-size: 1.12rem; color: var(--doux); margin: 0 0 28px; max-width: 62ch; text-wrap: pretty }
+.carte { border: 1px solid var(--trait); border-radius: 12px; background: var(--fond); box-shadow: var(--ombre) }
+.afaire { list-style: none; margin: 0; padding: 6px 0; counter-reset: n }
+.afaire li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; padding: 12px 18px; counter-increment: n }
+.afaire li + li { border-top: 1px solid var(--trait) }
+.afaire li::before { content: counter(n); width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--trait); display: grid; place-items: center; font-size: .75rem; font-weight: 600; color: var(--doux) }
+.infos { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--trait); border: 1px solid var(--trait); border-radius: 12px; overflow: hidden; margin-top: 16px }
+.infos div { background: var(--fond); padding: 12px 16px; display: grid; gap: 2px; min-width: 0 }
+.infos dt { font-size: .75rem; color: var(--doux) }
+.infos dd { margin: 0; font-weight: 500; overflow-wrap: anywhere }
+details.pieges { margin-top: 16px; border: 1px solid var(--trait); border-radius: 12px }
+details.pieges summary { cursor: pointer; padding: 12px 16px; font-weight: 500; list-style: none; display: flex; justify-content: space-between }
+details.pieges summary::after { content: "Show"; color: var(--accent); font-size: .85rem; font-weight: 500 }
+details.pieges[open] summary::after { content: "Hide" }
+details.pieges ul { margin: 0; padding: 0 18px 14px 34px; color: var(--doux) }
+details.pieges li + li { margin-top: 6px }
+.portes { list-style: none; margin: 16px 0 0; padding: 0 }
+.portes li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; padding: 10px 16px; align-items: center }
+.portes li + li { border-top: 1px solid var(--trait) }
+.portes .id { font-family: var(--mono); font-size: .8rem; color: var(--doux) }
+
+/* Pied fixe de navigation */
+.nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: color-mix(in srgb, var(--fond) 88%, transparent); backdrop-filter: blur(8px); border-top: 1px solid var(--trait); padding-bottom: env(safe-area-inset-bottom, 0px) }
+.nav-in { max-width: 760px; margin: 0 auto; height: 64px; display: flex; align-items: center; gap: 10px }
+.bouton { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 9px; border: 1px solid var(--trait); background: var(--fond); cursor: pointer; font-weight: 500; font-size: .9rem; white-space: nowrap }
+.bouton:hover { background: var(--survol) }
+.bouton.plein { background: var(--accent); border-color: var(--accent); color: var(--accent-encre) }
+.bouton.plein:hover { filter: brightness(1.06); background: var(--accent) }
+.bouton[disabled] { opacity: .4; cursor: default }
+.nav .milieu { flex: 1; display: flex; justify-content: center }
+.touches { color: var(--pale); font-size: .78rem }
+
+/* Accueil */
+.accueil h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin-top: 14px }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--trait); border: 1px solid var(--trait); border-radius: 12px; overflow: hidden; margin: 28px 0 }
+.trio div { background: var(--fond); padding: 18px; display: grid; gap: 4px }
+.trio b { font: 600 1.6rem/1.1 var(--titre); letter-spacing: -.02em }
+.trio span { color: var(--doux); font-size: .85rem }
+.comment { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 14px }
+.comment li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; color: var(--doux) }
+.comment li b { color: var(--encre); font-weight: 500 }
+.comment .n { width: 24px; height: 24px; border-radius: 7px; background: var(--surface); border: 1px solid var(--trait); display: grid; place-items: center; font-size: .75rem; font-weight: 600; color: var(--encre) }
+
+/* Full list view */
+.liste { max-width: 1120px; margin: 0 auto; padding-block: 24px 80px }
+.resume { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 28px }
+.resume .carte { padding: 16px 18px }
+.resume h2 { font: 600 .8rem var(--texte); color: var(--doux); margin: 0 0 10px; letter-spacing: .02em }
+.resume dl { margin: 0; display: grid; gap: 8px }
+.resume dl div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 8px }
+.resume dt { color: var(--doux); font-size: .85rem }
+.resume dd { margin: 0; font-size: .9rem; overflow-wrap: anywhere }
+.groupe { margin-top: 22px }
+.groupe-tete { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 0 12px 8px }
+.groupe-tete h3 { margin: 0; font: 600 .95rem var(--titre) }
+.groupe-tete span { color: var(--doux); font-size: .82rem }
+.table { border: 1px solid var(--trait); border-radius: 12px; overflow: hidden }
+.rang { width: 100%; display: grid; grid-template-columns: 22px 30px minmax(0, 1fr) 92px 150px 70px 96px; gap: 12px; align-items: center; padding: 11px 14px; border: 0; background: var(--fond); text-align: left; cursor: pointer }
+.rang + .rang { border-top: 1px solid var(--trait) }
+.rang:hover { background: var(--survol) }
+.rond { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--pale) }
+.rond.done { border-color: var(--ok); background: var(--ok) }
+.rond.doing { border-color: var(--attente); background: conic-gradient(var(--attente) 0 50%, transparent 50%) }
+.rond.retard, .rond.blocked { border-color: var(--retard) }
+.rang .num { font-family: var(--mono); font-size: .78rem; color: var(--pale) }
+.rang .tt { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.rang.done .tt { color: var(--pale) }
+.rang .c { color: var(--doux); font-size: .85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.rang .c.t { font-family: var(--mono); font-size: .8rem; color: var(--encre) }
+.rang .etat { justify-self: start }
+footer { color: var(--pale); font-size: .8rem; padding-top: 24px }
+
+@media (max-width: 760px) {
+  .marque span, .touches { display: none }
+  .rang { grid-template-columns: 22px minmax(0, 1fr) auto; }
+  .rang .num, .rang .c:not(.t) { display: none }
+  .rang .etat { display: none }
+  .trio { grid-template-columns: 1fr }
+  .phases small { display: none }
+}
+@media (max-width: 480px) { .compteur .puce:first-child { display: none } .bouton .lib { display: none } }
+</style>
+
+<header class="barre cadre">
+  <div class="barre-in">
+    <div class="marque"><span class="pastille-nom" id="initiale"></span><b id="nom"></b><span>· launch on X</span></div>
+    <div class="bascule" role="group" aria-label="View">
+      <button id="v-focus" data-v="focus" aria-pressed="true">Step by step</button>
+      <button id="v-tout" data-v="tout" aria-pressed="false">See all</button>
+    </div>
+    <div class="compteur"><span class="puce mono" id="rebours"></span><span class="puce" id="avance"></span></div>
+  </div>
+  <nav class="phases" id="phases" aria-label="Phases"></nav>
+</header>
+
+<main class="cadre" id="vue"></main>
+
+<div class="nav cadre" id="nav">
+  <div class="nav-in">
+    <button class="bouton" id="prec" aria-label="Previous step"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg><span class="lib">Previous</span></button>
+    <div class="milieu"><button class="bouton plein" id="action"></button></div>
+    <button class="bouton" id="suiv" aria-label="Next step"><span class="lib">Next</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</div>
+
+<script id="plan" type="application/json">__PLAN_JSON__</script>
+<script>
+(function () {
+  const plan = JSON.parse(document.getElementById("plan").textContent);
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const TZ = plan.tz || undefined;
+  const t0 = plan._t0_ms ? new Date(plan._t0_ms) : null;
+  const E = plan.steps;
+  const cle = "ticks:" + plan.project;
+  let coches = {}; try { coches = JSON.parse(localStorage.getItem(cle) || "{}"); } catch (e) { coches = {}; }
+
+  const NOMS = { todo: "To do", doing: "In progress", done: "Done", blocked: "Blocked", dropped: "Dropped" };
+  const duree = (m) => { m = Math.round(m || 0); if (m < 60) return m + " min"; const h = Math.floor(m / 60), r = m % 60; return r ? h + "h " + String(r).padStart(2, "0") + "m" : h + "h"; };
+  const fmt = (d, o) => { try { return d.toLocaleString("en-US", Object.assign({ timeZone: TZ }, o)); } catch (x) { return d.toLocaleString("en-US", o); } };
+  const jourLong = (d) => fmt(d, { weekday: "long", day: "numeric", month: "long" });
+  const jourCourt = (d) => fmt(d, { weekday: "short", day: "numeric", month: "short" });
+  const heure = (d) => fmt(d, { hour: "2-digit", minute: "2-digit" });
+  const ech = (e) => e._due_ms ? new Date(e._due_ms) : null;
+  const rel = (e) => { const v = e.offset_h; if (v == null) return "—"; const a = Math.abs(v), s = v < 0 ? "−" : "+";
+    if (a === 0) return "T0"; if (a < 1) return "T" + s + Math.round(a * 60) + " min"; if (a >= 24 && a % 24 === 0) return "T" + s + a / 24 + "d"; return "T" + s + a + "h"; };
+  const ecart = (ms) => { const a = Math.abs(ms), j = Math.floor(a / 864e5), h = Math.floor(a % 864e5 / 36e5), m = Math.floor(a % 36e5 / 6e4); return j ? j + "d " + h + "h" : h ? h + "h " + String(m).padStart(2, "0") + "m" : m + " min"; };
+  const nom = (k) => (plan.names && plan.names[k]) || k;
+  const st = (e) => coches[e.id] ? "done" : (e.status || "todo");
+  const retard = (e) => { const d = ech(e), s = st(e); return !!(d && d < new Date() && s !== "done" && s !== "dropped"); };
+  const actives = () => E.filter((e) => st(e) !== "dropped");
+  const enCours = () => actives().filter((e) => st(e) !== "done").sort((a, b) => (ech(a) || 9e15) - (ech(b) || 9e15) || a.id - b.id)[0];
+  const etatDe = (e) => { const s = st(e); if (s === "done" || s === "dropped" || s === "blocked" || s === "doing") return s; if (retard(e)) return "retard"; return "todo"; };
+  const libEtat = (e) => { const k = etatDe(e); if (k === "retard") return "Late"; if (k === "todo") { const d = ech(e); if (d) { const ms = d - new Date(); return ms > 0 ? "In " + ecart(ms) : "To do"; } } return NOMS[k] || "To do"; };
+  const classeEtat = (e) => { const k = etatDe(e); if (k === "todo") { const d = ech(e); if (d && d - new Date() < 864e5) return "bientot"; } return k; };
+  const phasesListe = () => { const g = []; E.forEach((e) => { const x = g.find((p) => p.nom === e.phase); x ? x.etapes.push(e) : g.push({ nom: e.phase, etapes: [e] }); }); return g; };
+
+  let vue = "focus", courant = null;
+
+  function barre() {
+    $("nom").textContent = plan.project || "Launch";
+    $("initiale").textContent = (plan.project || "L").trim().charAt(0).toUpperCase();
+    if (t0) { const ms = t0 - new Date(); $("rebours").innerHTML = (ms >= 0 ? "T−" : "T+") + ecart(ms); $("rebours").title = "Launch: " + jourLong(t0) + " at " + heure(t0); }
+    else $("rebours").textContent = "Launch time not set";
+    const ac = actives(), f = ac.filter((e) => st(e) === "done").length;
+    $("avance").innerHTML = `<i></i>${f} / ${ac.length}`;
+    const ici = courant ? courant.phase : (enCours() || {}).phase;
+    $("phases").innerHTML = phasesListe().map((p) => {
+      const n = p.etapes.length, fa = p.etapes.filter((e) => st(e) === "done").length;
+      return `<button style="--n:${n}" class="${p.nom === ici ? "ici" : ""}" data-id="${p.etapes.find((e) => st(e) !== "done")?.id || p.etapes[0].id}" title="${esc(p.nom)} · ${fa}/${n}"><span class="jauge"><i style="width:${Math.round(100 * fa / n)}%"></i></span><small>${esc(p.nom.split(" (")[0])}</small></button>`;
+    }).join("");
+  }
+
+  function accueil() {
+    courant = null;
+    const ac = actives(), reste = ac.filter((e) => st(e) !== "done"), min = reste.reduce((s, e) => s + (e.minutes || 0), 0), ec = enCours();
+    $("vue").innerHTML = `<section class="scene accueil">
+      <div class="sur">How it works</div>
+      <h1>${t0 ? `Your launch goes out on ${esc(jourLong(t0))} at ${esc(heure(t0))}.` : "Your launch has no date yet."}</h1>
+      <p class="pourquoi">Everything counts down from that minute, called T0. You see one step at a time: the one that matters now, what to do, and by when.</p>
+      <div class="trio">
+        <div><b>${reste.length}</b><span>steps left out of ${ac.length}</span></div>
+        <div><b>${duree(min)}</b><span>of estimated work</span></div>
+        <div><b>${t0 ? (t0 > new Date() ? ecart(t0 - new Date()) : "passed") : "—"}</b><span>until launch</span></div>
+      </div>
+      <ol class="comment">
+        <li><span class="n">1</span><span><b>One step at a time.</b> Its date is worked out from launch time, with how long it takes, who owns it and the agent that can prepare it.</span></li>
+        <li><span class="n">2</span><span><b>Do it, move to the next.</b> Arrow keys to move around, "See all" for the full list.</span></li>
+        <li><span class="n">3</span><span><b>To make it count</b>, tell Claude "done: 12". It updates the plan and this page.</span></li>
+      </ol>
+    </section>`;
+    nav(null, ec);
+  }
+
+  function focus(e) {
+    courant = e;
+    const d = ech(e), i = E.indexOf(e);
+    const infos = [["Time", duree(e.minutes)], ["Owner", e.owner || "Unassigned"]];
+    if (e.agent) infos.push(["Agent", e.agent]);
+    if ((e.templates || []).length) infos.push([e.templates.length > 1 ? "Templates" : "Template", e.templates.map(nom).join(" · ")]);
+    if ((e.prompts || []).length) infos.push(["Prompt", e.prompts.map(nom).join(" · ")]);
+    const portes = e.id === 29 && (plan.gates || []).length ? `<ul class="portes carte">${plan.gates.map((g) => `<li><span class="id">${esc(g.id)}</span><span>${esc(g.text)}</span><span class="etat ${g.state === "yes" ? "done" : g.state === "no" ? "retard" : ""}">${g.state || "to check"}</span></li>`).join("")}</ul>` : "";
+    $("vue").innerHTML = `<section class="scene">
+      <div class="sur"><span>Step ${e.id} of ${E.length}</span><span>·</span><span>${esc(e.phase.split(" (")[0])}</span></div>
+      <div class="quand"><span class="t">${esc(rel(e))}</span><span class="d">${d ? esc(jourLong(d)) + " · " + esc(heure(d)) : "no date"}</span><span class="etat ${classeEtat(e)}">${esc(libEtat(e))}</span></div>
+      <h1>${esc(e.title)}</h1>
+      ${e.why ? `<p class="pourquoi">${esc(e.why)}</p>` : ""}
+      ${(e.todo || []).length ? `<ol class="afaire carte">${e.todo.map((x) => `<li><span>${esc(x)}</span></li>`).join("")}</ol>` : ""}
+      ${portes}
+      <dl class="infos">${infos.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+      ${e.note ? `<p class="pourquoi" style="margin:16px 0 0;font-size:1rem">Note: ${esc(e.note)}</p>` : ""}
+      ${(e.pitfalls || []).length ? `<details class="pieges"><summary>What makes this step fail</summary><ul>${e.pitfalls.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
+    </section>`;
+    nav(e, null, i);
+    try { history.replaceState(null, "", "#step-" + e.id); } catch (x) {}
+  }
+
+  function nav(e, ec, i) {
+    $("nav").hidden = vue !== "focus";
+    const a = $("action");
+    if (!e) {
+      $("prec").disabled = true; $("suiv").disabled = !ec;
+      a.textContent = ec ? "Go to the current step" : "See all"; a.onclick = () => ec ? focus(ec) : basculer("tout");
+      $("suiv").onclick = () => ec && focus(ec); return;
+    }
+    $("prec").disabled = false; $("suiv").disabled = i >= E.length - 1;
+    $("prec").onclick = () => i === 0 ? accueil() : focus(E[i - 1]);
+    $("suiv").onclick = () => i < E.length - 1 && focus(E[i + 1]);
+    const fait = st(e) === "done", verrou = e.status === "done";
+    a.textContent = verrou ? "Done" : fait ? "Undo done" : "Mark as done";
+    a.disabled = verrou;
+    a.onclick = () => { if (fait) delete coches[e.id]; else coches[e.id] = true; try { localStorage.setItem(cle, JSON.stringify(coches)); } catch (x) {} barre(); if (!fait && i < E.length - 1) focus(enCours() || E[i + 1]); else focus(e); };
+  }
+
+  function tout() {
+    courant = null;
+    const champs = [["Account", plan.account], ["Goal", plan.goal], ["Win if", plan.kpi], ["Link", plan.link], ["Creator budget", plan.budget]];
+    const v = plan.verdict || "pending";
+    $("vue").innerHTML = `<section class="liste">
+      <div class="resume">
+        <div class="carte"><h2>The brief</h2><dl>${champs.map(([k, x]) => `<div><dt>${k}</dt><dd>${x ? esc(x) : '<span style="color:var(--pale)">to fill in</span>'}</dd></div>`).join("")}</dl></div>
+        <div class="carte"><h2>GO / NO-GO at T−12h · ${esc(v)}</h2><dl>${(plan.gates || []).map((g) => `<div><dt class="mono">${esc(g.id)} · ${g.state || "—"}</dt><dd>${esc(g.text)}</dd></div>`).join("")}</dl></div>
+      </div>
+      ${phasesListe().map((p) => `<div class="groupe"><div class="groupe-tete"><h3>${esc(p.nom)}</h3><span>${p.etapes.filter((e) => st(e) === "done").length} / ${p.etapes.length} · ${duree(p.etapes.reduce((s, e) => s + (e.minutes || 0), 0))}</span></div>
+        <div class="table">${p.etapes.map((e) => { const d = ech(e); return `<button class="rang ${st(e)}" data-id="${e.id}"><span class="rond ${etatDe(e)}"></span><span class="num">${String(e.id).padStart(2, "0")}</span><span class="tt">${esc(e.title)}</span><span class="c t">${esc(rel(e))}</span><span class="c">${d ? esc(jourCourt(d)) + " · " + esc(heure(d)) : "—"}</span><span class="c">${duree(e.minutes)}</span><span class="etat ${classeEtat(e)}">${esc(libEtat(e))}</span></button>`; }).join("")}</div></div>`).join("")}
+      <footer>Updated ${esc(jourCourt(new Date(plan.generated_ms || Date.now())))} at ${esc(heure(new Date(plan.generated_ms || Date.now())))}. A tick here stays in your browser; tell Claude "done: 12" to save it for real.</footer>
+    </section>`;
+    try { history.replaceState(null, "", "#all"); } catch (x) {}
+  }
+
+  function basculer(v) {
+    vue = v;
+    document.querySelectorAll(".bascule button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === v)));
+    $("nav").hidden = v !== "focus";
+    if (v === "tout") tout(); else { const ec = enCours(); ec ? focus(ec) : accueil(); }
+    barre(); window.scrollTo(0, 0);
+  }
+
+  document.querySelector(".bascule").addEventListener("click", (ev) => { const v = ev.target.dataset.v; if (v) basculer(v); });
+  $("phases").addEventListener("click", (ev) => { const b = ev.target.closest("button"); if (!b) return; vue = "focus"; basculer.call(null, "focus"); focus(E.find((e) => e.id == b.dataset.id)); barre(); });
+  $("vue").addEventListener("click", (ev) => { const r = ev.target.closest(".rang"); if (!r) return; vue = "focus"; document.querySelectorAll(".bascule button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === "focus"))); focus(E.find((e) => e.id == r.dataset.id)); barre(); window.scrollTo(0, 0); });
+  document.addEventListener("keydown", (ev) => {
+    if (vue !== "focus" || ev.target.closest("input, textarea")) return;
+    if (ev.key === "ArrowRight" && !$("suiv").disabled) $("suiv").click();
+    if (ev.key === "ArrowLeft" && !$("prec").disabled) $("prec").click();
+  });
+
+  function route() {
+    const h = location.hash.replace("#", "");
+    const m = /^step-(\d+)$/.exec(h), cible = m && E.find((e) => e.id == m[1]);
+    if (h === "all") { if (vue !== "tout") basculer("tout"); return; }
+    vue = "focus";
+    document.querySelectorAll(".bascule button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === "focus")));
+    if (cible) { if (courant !== cible) focus(cible); } else accueil();
+    barre();
+  }
+  window.addEventListener("hashchange", route);
+  route();
+  setInterval(barre, 30e3);
+})();
+</script>

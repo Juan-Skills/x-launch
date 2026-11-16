@@ -1,0 +1,1070 @@
+{
+ "project": "",
+ "account": "",
+ "goal": "",
+ "kpi": "",
+ "link": "",
+ "budget": "",
+ "t0": "",
+ "tz": "UTC",
+ "updated": "",
+ "names": {
+  "launch-log": "The launch log",
+  "countdown-48h": "The 48h countdown",
+  "the-brief": "The brief",
+  "post-skeleton": "The post skeleton",
+  "two-minute-check": "The two-minute check",
+  "creator-log": "The creator log",
+  "invite-dm": "The invite DM",
+  "angle-sheet": "The angle sheet",
+  "creator-folder": "The creator folder",
+  "creator-kit": "The kit sent to each creator",
+  "day-before-dm": "The day-before DM",
+  "its-live-dm": "The \"it's live\" DM",
+  "team-note": "The team note",
+  "launch-email": "The launch email",
+  "payout-sheet": "The payout sheet",
+  "good-reply": "A reply that works",
+  "run-sheet": "The first-ten-minutes run sheet",
+  "goals-note": "The goals note",
+  "eight-gates": "The eight GO / NO-GO gates",
+  "reminder-t-3h": "The T−3h reminder",
+  "line-t-15m": "The T−15m line",
+  "t0-check": "The T0 check",
+  "live-ping": "The \"it's live\" ping to creators",
+  "nudge": "The nudge to a late creator",
+  "three-replies": "Three kinds of replies",
+  "second-beat": "Three second beats",
+  "engager-dm": "The DM to someone who engaged",
+  "thank-you": "The thank-you to creators",
+  "lead-note": "The note to a lead",
+  "one-page-retro": "The one-page retro",
+  "size-from-revenue": "Size a launch from revenue",
+  "twelve-launches": "One product, twelve launches",
+  "notes-to-brief": "From call notes to brief",
+  "test-an-angle": "Test an angle",
+  "ten-first-lines": "Ten first lines, three full posts",
+  "harsh-read": "Harsh read of the draft",
+  "list-from-competitor": "A long list from a competitor's launch",
+  "quote-in-their-voice": "A quote in a creator's voice",
+  "score-followers": "Score a follower list",
+  "score-engagers": "Score the people who engaged"
+ },
+ "gates": [
+  {
+   "id": "G1",
+   "text": "Creators' money set aside",
+   "state": ""
+  },
+  {
+   "id": "G2",
+   "text": "Final post approved and frozen",
+   "state": ""
+  },
+  {
+   "id": "G3",
+   "text": "Creators confirmed in writing (30 or more)",
+   "state": ""
+  },
+  {
+   "id": "G4",
+   "text": "Every creator has an angle, a draft and the assets",
+   "state": ""
+  },
+  {
+   "id": "G5",
+   "text": "Network told, team briefed",
+   "state": ""
+  },
+  {
+   "id": "G6",
+   "text": "Link visible without \"Show more\", and it opens",
+   "state": ""
+  },
+  {
+   "id": "G7",
+   "text": "Reply plan written, first replies drafted",
+   "state": ""
+  },
+  {
+   "id": "G8",
+   "text": "Expected numbers written down",
+   "state": ""
+  }
+ ],
+ "steps": [
+  {
+   "id": 1,
+   "phase": "Once, before your first launch",
+   "title": "Put a revenue number on the launch before you prepare it",
+   "minutes": 45,
+   "offset_h": -72,
+   "owner": "",
+   "status": "todo",
+   "prompts": [
+    "size-from-revenue"
+   ],
+   "why": "Views are easy to get, and they are not what you want. First decide what the launch should bring in, in signups and in money. Then work back to the reach and the budget you need to get there.",
+   "todo": [
+    "Pick one metric you can count the next morning: signups, booked demos, paying customers or new monthly revenue.",
+    "Write the target next to the spend. A rule of thumb used at unfair.so, borrowed from a founder: new monthly revenue in the first month should roughly match what the launch cost.",
+    "Redo the math with your own funnel. The prompt runs the numbers for three scenarios.",
+    "Put that number in the brief (step 07) and check it again three days later (step 40)."
+   ],
+   "pitfalls": [
+    "Aiming for a view count: you hit it and learn nothing.",
+    "Trusting one viral post. A founder told them about days at +$10,000 in monthly revenue, and about multi-million-view posts that brought in nothing. The difference was who saw them.",
+    "Judging the method on a single launch. Give it six tries."
+   ]
+  },
+  {
+   "id": 2,
+   "phase": "Once, before your first launch",
+   "title": "Give every launch its own trail",
+   "minutes": 45,
+   "offset_h": -72,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "launch-log"
+   ],
+   "why": "With two launches a week landing in the same signup curve, you can't tell which angle paid off. So each launch gets its own link, its own code and a question at signup.",
+   "todo": [
+    "One UTM campaign per launch: utm_source=x&utm_campaign=launch-date-angle. Creators reuse the same campaign with utm_content={{their_handle}}.",
+    "One promo code per launch, in the post and in the quotes.",
+    "One question at signup: \"Where did you hear about us?\", free text.",
+    "One row per launch in a spreadsheet: views, visits, signups, paying customers, revenue, spend."
+   ],
+   "pitfalls": [
+    "One UTM for the whole month.",
+    "Looking only at last click. Launch traffic keeps coming in for days through direct visits and search.",
+    "No signup question, when it's the cheapest measurement you will ever build."
+   ]
+  },
+  {
+   "id": 3,
+   "phase": "Once, before your first launch",
+   "title": "Fill the backlog: everything is a launch",
+   "minutes": 60,
+   "offset_h": -72,
+   "owner": "",
+   "status": "todo",
+   "agent": "Angle Scout",
+   "prompts": [
+    "twelve-launches"
+   ],
+   "why": "Two launches a week sounds like a lot until you list what you already have. A launch needs a clear idea and a reason to post it today. Not necessarily a new product.",
+   "todo": [
+    "Write down eight launches for the next four weeks. Pull from the twelve types below until you have more ideas than slots.",
+    "One angle per launch. Two ideas in one post compete with each other.",
+    "Put the strongest one in week one: its result is what you will show the next creators.",
+    "A feature, even a small one, if it changes what people can do today",
+    "An integration or plugin for a tool your customers already use",
+    "A benchmark with numbers for your whole category, you included",
+    "Your take on the week's big release, with your product doing something on top of it",
+    "A customer story with a number in the first line",
+    "An open release: a repo, a dataset, a prompt pack",
+    "A free tool that does one small thing",
+    "A side-by-side: the old way and your way, on the same task",
+    "A walkthrough of one use case for a specific audience",
+    "A milestone, with proof",
+    "A contest with a prize",
+    "A manifesto: what you think about your category"
+   ],
+   "pitfalls": [
+    "Saving the launch for the big release. It gets one shot; eight small launches teach you what it should say.",
+    "Replaying last week's hit word for word. At unfair.so, a side-by-side that got 456,000 views, redone identically, got 104,000."
+   ]
+  },
+  {
+   "id": 4,
+   "phase": "Once, before your first launch",
+   "title": "Book two slots a week and stick to them",
+   "minutes": 20,
+   "offset_h": -72,
+   "owner": "",
+   "status": "todo",
+   "why": "A channel has a schedule. Same days, same time: your team, your creators and your followers learn when you ship something.",
+   "todo": [
+    "Pick two days with a day between them. Tuesday and Thursday is the classic.",
+    "Pick an hour when your audience is awake. To reach the US and Europe at once: 9 to 11 am Pacific, or late morning London time if your audience sits further east.",
+    "Put the next four weeks on the calendar now. The rule at unfair.so: the next two or three launches are always already booked.",
+    "Keep the slot quiet: no other post from the account in the six hours before and after."
+   ],
+   "pitfalls": [
+    "Launching when the post is ready instead of when the slot comes. The slot is what builds the habit.",
+    "A date that keeps moving. One launch slipped five times because of content, then nearly went out at the wrong hour because of a mix-up between two time zones. Write the time zone every time."
+   ]
+  },
+  {
+   "id": 5,
+   "phase": "Once, before your first launch",
+   "title": "Set the budget per launch",
+   "minutes": 30,
+   "offset_h": -72,
+   "owner": "",
+   "status": "todo",
+   "why": "Decide what a launch costs before the first one. After that, the weekly question becomes \"which angle?\" and never again \"do we go?\".",
+   "todo": [
+    "The creator budget is the money paid to the accounts that quote you. At unfair.so, no launch goes out under $4,000.",
+    "Aim for at least 30 creators. Below that, a post rarely gets out of its own followers' circle.",
+    "Keep the same budget for six launches, then shift money toward the angles that brought in signups."
+   ],
+   "pitfalls": [
+    "A $500 launch. They tried it: 13,000 people reached, one signup.",
+    "The whole budget on two big names. Thirty small, well-targeted accounts in the same window do more than two big ones an hour apart.",
+    "A different budget every launch: you can't compare angles if the spend moves with them.",
+    "Don't have thirty creators on hand? Start building your network now (steps 13 to 15), beginning with your happy customers."
+   ]
+  },
+  {
+   "id": 6,
+   "phase": "Kickoff (T−48h to T−30h)",
+   "title": "Set the date, the minute and the time zone",
+   "minutes": 15,
+   "offset_h": -48,
+   "owner": "",
+   "status": "todo",
+   "agent": "Launch Manager",
+   "templates": [
+    "countdown-48h"
+   ],
+   "why": "Everything else on the list hangs on one moment: the minute the post goes out (T0). Until it's written down with its time zone, nothing can be scheduled around it.",
+   "todo": [
+    "Write T0 with a date, a time and a time zone. \"Tuesday morning\" is not a time.",
+    "Name one launch owner. One person, even if five are helping.",
+    "Open one discussion thread for this launch and put everything in it.",
+    "Count down from T0 with the template.",
+    "No confirmed time at T−30h: that's your first blocker. Say it out loud."
+   ],
+   "pitfalls": [
+    "A period instead of a date. You can't book \"mid-October\".",
+    "Two owners.",
+    "Confirming the time from memory after a call. The time is confirmed when the person who presses \"Post\" writes it back to you, to the minute."
+   ]
+  },
+  {
+   "id": 7,
+   "phase": "Kickoff (T−48h to T−30h)",
+   "title": "Write the one-page brief",
+   "minutes": 45,
+   "offset_h": -30,
+   "owner": "",
+   "status": "todo",
+   "agent": "Launch Manager",
+   "templates": [
+    "the-brief"
+   ],
+   "prompts": [
+    "notes-to-brief"
+   ],
+   "why": "One page that your team and your agents work from, and that the creator briefs get cut from later. If the goal, the number and the link aren't on it, everyone makes up their own.",
+   "todo": [
+    "Fill in the eleven lines of the template. None left empty: write \"unknown\", and it becomes a task with a name on it.",
+    "Reread your recent calls and threads before writing. A brief is mostly things already said.",
+    "Pin it at the top of the launch thread."
+   ],
+   "pitfalls": [
+    "A brief that copies the product page.",
+    "No NOT THIS TIME line: the second idea sneaks into the post.",
+    "A metric nobody can count the next morning."
+   ]
+  },
+  {
+   "id": 8,
+   "phase": "Kickoff (T−48h to T−30h)",
+   "title": "Find the angle: the idea people will repeat",
+   "minutes": 60,
+   "offset_h": -30,
+   "owner": "",
+   "status": "todo",
+   "prompts": [
+    "test-an-angle"
+   ],
+   "why": "This is where most of the thinking goes. The angle is the sentence a stranger would use to tell a friend about your post. If you can't say it in one line, the post isn't ready.",
+   "todo": [
+    "Write the angle in one sentence, without the product name.",
+    "Try it on someone outside your company. If they say \"so what?\", keep looking.",
+    "Tie it to something happening this week when that's honest. Posts that ride a real event travel furthest.",
+    "Give the reader something to keep: a list, a number, a method. Useful posts get saved and shared more than announcements.",
+    "The news: the week's big release, and your product doing something with it the same day",
+    "The awkward number: a benchmark or a stat your category would rather not see",
+    "The demo that looks impossible: one take, no cuts, a real task",
+    "The useful object: a tool list, a template, a dataset people will save",
+    "The stance: something you believe that most of your category doesn't"
+   ],
+   "pitfalls": [
+    "The feature list as an angle.",
+    "Going viral with the wrong people. A founder turned down a celebrity stunt that was sure to work, because it would have pulled in curious people looking for freebies and no buyers. It was the right call."
+   ]
+  },
+  {
+   "id": 9,
+   "phase": "The post (T−30h to T−24h)",
+   "title": "Launch from the founder's account",
+   "minutes": 20,
+   "offset_h": -30,
+   "owner": "",
+   "status": "todo",
+   "why": "People reshare people. A founder saying \"we built this\" goes further than a logo, and the replies turn into conversations a company account can't have.",
+   "todo": [
+    "The main post goes out from the founder's account. The company account quotes it with its own take and handles replies.",
+    "Launching twice a week? Give a launch to the product account now and then. unfair.so's hunch: an account that carries every launch ends up eating its own reach.",
+    "Check before launch day that the account can carry the post: long text, long video, pinned slot free.",
+    "If someone else will reply on the founder's behalf, set up X's delegated access now, not at T0."
+   ],
+   "pitfalls": [
+    "The founder posts and walks into a meeting (see step 37)."
+   ]
+  },
+  {
+   "id": 10,
+   "phase": "The post (T−30h to T−24h)",
+   "title": "Make the first line and the first five seconds carry it",
+   "minutes": 180,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "post-skeleton"
+   ],
+   "prompts": [
+    "ten-first-lines"
+   ],
+   "why": "People decide in about a second. The first line of text and the start of the video have to earn the rest.",
+   "todo": [
+    "First line: the angle, alone. No hello, no \"excited to announce\".",
+    "A video uploaded natively to X, with the hook in the first five seconds. Cut everything before the first interesting frame.",
+    "Burn in the captions: on X, everything is watched with the sound off.",
+    "Second paragraph: what it is, and who it's for. Then the link (step 11).",
+    "Frozen means frozen. Once people quote a post, you can't rewrite it.",
+    "The founder demo: you, the screen, a real task",
+    "The animation: the idea in motion, nobody on camera",
+    "The scenario: the product reacting to the week's news"
+   ],
+   "pitfalls": [
+    "\"We're excited to announce\".",
+    "A logo animation before anything happens.",
+    "A thread where one post would do. The first post has to stand alone: it's the one people quote."
+   ]
+  },
+  {
+   "id": 11,
+   "phase": "The post (T−30h to T−24h)",
+   "title": "Put the link in the post, above \"Show more\"",
+   "minutes": 15,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "why": "If readers have to expand the post or open the replies to find your link, most won't. What unfair.so tells every founder: a link in the first reply converts about ten times worse than a link in the post.",
+   "todo": [
+    "Keep the text short enough that the link shows without tapping \"Show more\".",
+    "Open the link on a phone, on mobile data. Does it open? Does the page load? The post itself gets checked logged out at T0 (step 31).",
+    "Add the UTM and the code from step 02.",
+    "Then drop the link again as the first reply, for those who scroll that far."
+   ],
+   "pitfalls": [
+    "The link only in the bio.",
+    "The link on the video's end screen.",
+    "A link to the homepage when the post is about one feature. Send people to what you showed."
+   ]
+  },
+  {
+   "id": 12,
+   "phase": "The post (T−30h to T−24h)",
+   "title": "Get an honest read before you freeze",
+   "minutes": 30,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "agent": "Post Critic",
+   "prompts": [
+    "harsh-read"
+   ],
+   "why": "You can't fix a post once it's out. Take the hard feedback while it's still a draft, from someone with no reason to be nice.",
+   "todo": [
+    "Send the draft to one person who will tell you the truth. Ask what they would cut.",
+    "Run it past the critic (agent or prompt).",
+    "Fix the first line and the first five seconds first: that's where most of the notes land.",
+    "Freeze it at T−24h. Later tweaks are for the next launch."
+   ],
+   "pitfalls": [
+    "Asking the team: they've seen it ten times and can't read it fresh anymore.",
+    "Polishing after T−24h. The angle and every creator draft are written against the frozen version."
+   ]
+  },
+  {
+   "id": 13,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Shortlist 30 to 60 creators by who follows them",
+   "minutes": 120,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "agent": "Creator Scout",
+   "prompts": [
+    "list-from-competitor"
+   ],
+   "why": "A creator is worth what their followers are worth to you. Fifty thousand followers who will never buy do less for a launch than three thousand who might.",
+   "todo": [
+    "Start from people, not lists. Who do your best customers follow? Who quoted the last launch in your category?",
+    "Build the long list from three sources: quotes under your competitors' launches, replies under accounts your audience reads, and your own active followers.",
+    "Score each one: audience fit first, recent activity second, size last.",
+    "Keep at least 30 accounts, 40 to 60 if the budget allows. Line up a few backups: someone always drops out.",
+    "Mix sizes: two or three big accounts for reach, the rest small and focused."
+   ],
+   "pitfalls": [
+    "Sorting by follower count.",
+    "Trusting a tool's pick without opening the profile. Every creator goes past a human's eyes.",
+    "An audience in the wrong country or the wrong job. Check before you pay."
+   ]
+  },
+  {
+   "id": 14,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Read each one's last ten posts",
+   "minutes": 60,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "agent": "Creator Scout",
+   "templates": [
+    "two-minute-check"
+   ],
+   "why": "A profile tells you who someone was. Their last ten posts tell you what will happen if they post tomorrow.",
+   "todo": [
+    "Open the profile and read ten posts, not counting the pinned one.",
+    "Look at replies before likes. Real replies from real accounts are the hardest thing to fake.",
+    "Compare views to follower count. A 50,000-follower account getting 400 views a post has an audience that left.",
+    "Find their last paid post and see how it did compared to usual.",
+    "Two minutes per account. Thirty creators is an hour, and that hour saves the launch."
+   ],
+   "pitfalls": [
+    "Reading the follower count and stopping there.",
+    "Rebooking a creator who didn't deliver because they were nice about it. Write down why, and don't book them again."
+   ]
+  },
+  {
+   "id": 15,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Rotate your creator team",
+   "minutes": 20,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "creator-log"
+   ],
+   "why": "The same thirty faces quoting you twice a week stops looking like news, both to their followers and to the feed. Rotate.",
+   "todo": [
+    "Keep the few who did best and swap the rest. A slightly different mix each launch reaches people the last one missed.",
+    "Track each creator: number of launches with you, last paid post anywhere, results of their quotes.",
+    "Before booking, check how many paid posts they've already put out this week. An account that only posts sponsored content has stopped working.",
+    "Bring in two or three new accounts every launch. Some will become your best."
+   ],
+   "pitfalls": [
+    "The same team every time because it's easier.",
+    "No notes. In a month you won't remember who delivered."
+   ]
+  },
+  {
+   "id": 16,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Set the price and the posting window",
+   "minutes": 90,
+   "offset_h": -18,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "invite-dm"
+   ],
+   "why": "A creator who knows the price, the minute and what counts as done shows up. If they only know two of the three, maybe.",
+   "todo": [
+    "Ask for their price. Don't name yours first.",
+    "Agree in writing on three things: the amount; the window (first wave within five minutes of your ping, everyone within the hour); what counts as delivered (a quote in their own words, still up the next day).",
+    "Offer product access or credits on top. It brings prices down and makes the posts better.",
+    "Paid is paid: ask creators to disclose it the way X and their country's rules require.",
+    "Pay what was agreed, on time. Creators talk to each other."
+   ],
+   "pitfalls": [
+    "Negotiating on launch day.",
+    "No window in the deal. \"Sometime today\" is how a wave turns into a trickle.",
+    "Paying before the post is live (step 25)."
+   ]
+  },
+  {
+   "id": 17,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Give each creator their own angle",
+   "minutes": 90,
+   "offset_h": -18,
+   "owner": "",
+   "status": "todo",
+   "agent": "Quote Drafter",
+   "templates": [
+    "angle-sheet"
+   ],
+   "prompts": [
+    "quote-in-their-voice"
+   ],
+   "why": "Thirty people posting the same sentence reads like a script, and the feed treats copies as spam. Thirty people each saying what struck them reads like news.",
+   "todo": [
+    "Write two or three angles derived from the main one, each for a different audience.",
+    "Assign angles to creators based on what they usually talk about.",
+    "Draft a quote for each creator, in their own voice. It's a starting point: they can rewrite it or bring their own.",
+    "Aim for quotes that could travel without your post. A quote with its own clip or its own claim reaches people the original never would."
+   ],
+   "pitfalls": [
+    "One draft for everyone.",
+    "Copy to post word for word. The posts come out stiff and creators don't want to come back.",
+    "Same-day drafts. Creators need them before T−12h."
+   ]
+  },
+  {
+   "id": 18,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Make the creators' visuals for them",
+   "minutes": 120,
+   "offset_h": -18,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "creator-folder"
+   ],
+   "why": "A quote with its own clip or screenshot works far better than text alone, and most creators won't make one unless you hand it to them.",
+   "todo": [
+    "Cut your main video into three to five short clips, one moment each.",
+    "Give real product access to about ten creators so they can make their own. A code for one paid month is enough.",
+    "Put everything in a single folder: clips, screenshots, logo, angle sheet.",
+    "Text only is fine for creators who never post video. A well-turned sentence in their voice beats a clip that doesn't look like them."
+   ],
+   "pitfalls": [
+    "Access that doesn't work. On one launch, several creators couldn't log into the product on the day.",
+    "A brief that points to last month's video."
+   ]
+  },
+  {
+   "id": 19,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Send brief, draft and instructions, and get a yes from each",
+   "minutes": 60,
+   "offset_h": -12,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "creator-kit"
+   ],
+   "why": "A creator who hasn't replied hasn't said yes. Count the yeses, not the messages sent.",
+   "todo": [
+    "Send each creator four things in one message: the angle, their draft, the visuals, the launch-day instructions.",
+    "The instructions are the five steps at the bottom of the kit. The \"it's live\" ping repeats them (step 32).",
+    "Wait for a yes. Nudge at T−6h, and bring in a backup for anyone still silent at T−3h.",
+    "Handle special requests now. A creator with an open question at T0 posts late."
+   ],
+   "pitfalls": [
+    "Counting sent messages as confirmations.",
+    "A kit so long nobody reaches the instructions.",
+    "No draft. Without one, creators post late or post thin."
+   ]
+  },
+  {
+   "id": 20,
+   "phase": "The creators (T−24h to T−12h)",
+   "title": "Ask them to follow you before the launch",
+   "minutes": 10,
+   "offset_h": -12,
+   "owner": "",
+   "status": "todo",
+   "why": "A quote from someone who follows you reads like a fan talking. And your post lands in their feed the second it goes out.",
+   "todo": [
+    "Ask every creator to follow the launching account.",
+    "Follow them back.",
+    "Do it the day before, when nobody's in a rush. Launch morning is for the post."
+   ],
+   "pitfalls": []
+  },
+  {
+   "id": 21,
+   "phase": "Your own network (T−24h to T−6h)",
+   "title": "Score your followers and keep the 200 that matter",
+   "minutes": 60,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "agent": "Network Scorer",
+   "prompts": [
+    "score-followers"
+   ],
+   "why": "In unfair.so's reading of the current algorithm, how your own followers react comes before everything else. A few hundred well-chosen people who heard from you in advance count for more than a few thousand who stumble on the post by chance.",
+   "todo": [
+    "Pull the follower lists: yours, your co-founders', your team's and your investors'.",
+    "Score each person against your ideal buyer: their job, their company, the topics they post about.",
+    "Keep the best 200 and sort them into three groups:"
+   ],
+   "pitfalls": [
+    "Writing to everyone. You burn your list and your account.",
+    "Forgetting your investors' and team's followers. That is where the warmest people are."
+   ]
+  },
+  {
+   "id": 22,
+   "phase": "Your own network (T−24h to T−6h)",
+   "title": "Give them a heads-up by hand",
+   "minutes": 120,
+   "offset_h": -24,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "day-before-dm",
+    "its-live-dm"
+   ],
+   "why": "A short personal note the day before earns a reply and a quote. A mass send gets muted, and at this volume automation gets accounts restricted.",
+   "todo": [
+    "Start the day before, earlier if you can. Six hours ahead is the minimum.",
+    "Send by hand, in batches over an hour or two. No automated bulk sending.",
+    "Three lines: what is coming out, when, one single ask.",
+    "The minute the post is live, send the second note: it's live, it's the pinned post."
+   ],
+   "pitfalls": [
+    "Pasting a big paragraph with a link.",
+    "Asking for a repost. Ask for their opinion: replies and quotes do more, and people would rather be asked what they think.",
+    "Automating. A restricted account costs you more than all the messages you thought you were saving."
+   ]
+  },
+  {
+   "id": 23,
+   "phase": "Your own network (T−24h to T−6h)",
+   "title": "Brief the team: one quote ready, one hour blocked",
+   "minutes": 30,
+   "offset_h": -18,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "team-note"
+   ],
+   "why": "Your own people are the fastest quotes you will get, and the most believable replies. They need what the creators get: a time, an angle, a draft.",
+   "todo": [
+    "Every team member with an X account writes their quote today, in their own words, about their part of the work.",
+    "Everyone blocks the first hour after T0.",
+    "Split the replies: who takes technical questions, who takes pricing, who says thanks.",
+    "Ask investors and advisors for a quote too, and send them a draft: they don't have time.",
+    "Line up one named quote: someone your field already listens to. It has to be their real opinion, never a courtesy."
+   ],
+   "pitfalls": [
+    "Team members who only repost. A repost reaches their followers; a quote with an opinion reaches strangers.",
+    "Five identical \"so proud of the team\" posts."
+   ]
+  },
+  {
+   "id": 24,
+   "phase": "Your own network (T−24h to T−6h)",
+   "title": "Prepare the newsletter and your other channels",
+   "minutes": 30,
+   "offset_h": -18,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "launch-email"
+   ],
+   "why": "Your email list is the only audience you can reach whenever you want. Sent at T0, it brings your warmest people to the post in its first minutes.",
+   "todo": [
+    "Write the email now and leave the link blank. Send it by hand as soon as the post is live: before that, the post has no address.",
+    "One link only: the post. The product link is already in it.",
+    "Same for LinkedIn, Discord, Telegram and the Slack groups you belong to: a short note, at the same minute.",
+    "Four lists if you have them: waitlist, people who booked a demo, customers, sign-ups."
+   ],
+   "pitfalls": [
+    "Linking the product page instead of the post. You want the first-minutes engagement on X, and the post already carries the product link.",
+    "Sending an hour late."
+   ]
+  },
+  {
+   "id": 25,
+   "phase": "Lock-in (T−12h)",
+   "title": "Set the creator money aside, pay only for published posts",
+   "minutes": 20,
+   "offset_h": -12,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "payout-sheet"
+   ],
+   "why": "Creators post on time when the money is already set aside. And you stay protected by only releasing it once the post is live.",
+   "todo": [
+    "Add up the agreed prices and compare with the budget you set in step 5.",
+    "Set the total aside before T−12h: an escrow, a separate balance, or at the very least a sheet everyone can see.",
+    "Release each payment when the creator's quote is published in the agreed window and still up one day later (step 38).",
+    "No post, no payment. The money goes back into your budget."
+   ],
+   "pitfalls": [
+    "Paying upfront.",
+    "Paying late. A creator who waited three weeks won't answer next time.",
+    "Money that lands after T−12h. At unfair.so, that is one of the usual reasons for a NO-GO."
+   ]
+  },
+  {
+   "id": 26,
+   "phase": "Lock-in (T−12h)",
+   "title": "Plan where you will reply",
+   "minutes": 60,
+   "offset_h": -12,
+   "owner": "",
+   "status": "todo",
+   "agent": "Reply Scout",
+   "templates": [
+    "good-reply"
+   ],
+   "why": "Your post is just one place. The conversation about your topic is happening today in fifty others. A good reply under a post that is taking off puts you in front of all its readers for free.",
+   "todo": [
+    "List the keywords your audience argues about.",
+    "Find 30 to 50 active posts on those topics, no more than two days old: big accounts in your niche, threads about the problem you solve, posts about the news your launch ties into.",
+    "For each one, write a reply that adds something on its own. The link to your launch comes second, or not at all.",
+    "Decide who replies from which account: the founder, the team, the product account.",
+    "The floor at unfair.so: 40 replies per launch."
+   ],
+   "pitfalls": [
+    "\"Great post! We just launched X.\" That is spam, and it shows.",
+    "Replying from throwaway accounts made for the occasion.",
+    "Sending every reply at once. Spread them over the day."
+   ]
+  },
+  {
+   "id": 27,
+   "phase": "Lock-in (T−12h)",
+   "title": "Rehearse the first ten minutes",
+   "minutes": 30,
+   "offset_h": -12,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "run-sheet"
+   ],
+   "why": "Ten minutes is too short to improvise. Walk through them once on paper, with names, and prepare every message before launch day.",
+   "todo": [
+    "Write the run sheet: one line per minute, one name per line.",
+    "Draft every message you will send at T0 and keep it where you can paste it: the creator ping, the \"it's live\" to the team, the network message, the email.",
+    "Open the landing page on a phone, on mobile data. Test the link, the sign-up and the code.",
+    "Name who watches the counter and who chases missing creators. Neither of them should be the person replying."
+   ],
+   "pitfalls": [
+    "One person doing everything. Posting, counting and replying are three jobs.",
+    "Writing the creator ping at T0. It takes a minute you don't have."
+   ]
+  },
+  {
+   "id": 28,
+   "phase": "Lock-in (T−12h)",
+   "title": "Write down the numbers you expect",
+   "minutes": 15,
+   "offset_h": -12,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "goals-note"
+   ],
+   "why": "Without a forecast written beforehand, any result looks fine afterwards. The gap between what you expected and what happened is what makes the next launch better.",
+   "todo": [
+    "Two numbers written before the launch, where the team can see them: expected views and the metric from step 1.",
+    "Add the checkpoints: quotes at T+10m and T+1h, views at T+24h.",
+    "Afterwards, put the real numbers next to them (step 40)."
+   ],
+   "pitfalls": [
+    "Goals written after the result.",
+    "A goal in views only (see step 1)."
+   ]
+  },
+  {
+   "id": 29,
+   "phase": "Lock-in (T−12h)",
+   "title": "Call GO or NO-GO",
+   "minutes": 15,
+   "offset_h": -12,
+   "owner": "",
+   "status": "todo",
+   "agent": "Launch Manager",
+   "templates": [
+    "eight-gates"
+   ],
+   "why": "A launch that isn't ready costs as much as one that is, and returns a fraction. At twelve hours, someone must have the right to say no.",
+   "todo": [
+    "Go through the eight gates one by one. Each gate is yes or no.",
+    "All yes: GO. Announce it where the whole team sees it.",
+    "A single no: name the blocker, its owner and the time it has to be cleared by. If it doesn't clear, move to the next slot."
+   ],
+   "pitfalls": [
+    "Nobody with the authority to say no.",
+    "A \"GO with five risks\". That is a NO-GO with better manners."
+   ]
+  },
+  {
+   "id": 30,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Count confirmations and go quiet",
+   "minutes": 20,
+   "offset_h": -3,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "reminder-t-3h",
+    "line-t-15m"
+   ],
+   "why": "At three hours, you can still replace a creator. At T0, you can't.",
+   "todo": [
+    "Show the count where the team can see it: confirmed, pending, dropped out.",
+    "Replace everyone who hasn't answered. Your shortlist had backups for exactly this.",
+    "Send the reminder to everyone with a role today: the time, the brief one more time, and that you will ping them the moment it's live.",
+    "No other post from the launching account until six hours after. Replies are fine.",
+    "T−1h: the founder is online, the creators are in the group chat, the team is at their posts.",
+    "T−15m: one last note to everyone."
+   ],
+   "pitfalls": [
+    "Finding out at T+10m that six creators are asleep.",
+    "A post scheduled the week before that goes out an hour before the launch."
+   ]
+  },
+  {
+   "id": 31,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Post by hand, pin it, check the post is alive",
+   "minutes": 10,
+   "offset_h": 0,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "t0-check"
+   ],
+   "why": "The first minute is the only one fully in your hands. Post it yourself, look at it with your own eyes, and only then bring everyone in.",
+   "todo": [
+    "Post by hand. No scheduling tool: you want to see it go out.",
+    "Pin it.",
+    "Add the first reply with the link (step 11).",
+    "Open the post in a logged-out window. Text, video, link: is it all there? Does the video play?",
+    "If something is off, delete and repost before the first quote. After the first quote, you are committed.",
+    "Paste the post's URL in the team chat and announce it's out."
+   ],
+   "pitfalls": [
+    "Scheduling the post and hoping for the best.",
+    "Pinging creators before you've looked at the post.",
+    "Editing the post once it already has quotes."
+   ]
+  },
+  {
+   "id": 32,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Tell creators it's live, without a link",
+   "minutes": 5,
+   "offset_h": 0,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "live-ping"
+   ],
+   "why": "One message, at the same second for everyone, telling them where to go.",
+   "todo": [
+    "Post it in the creator group chat, and by DM to anyone not in it.",
+    "Use the template. No direct link (see step 19).",
+    "Watch who reacts. Anyone silent after three minutes gets a personal message."
+   ],
+   "pitfalls": [
+    "Putting a link in the ping.",
+    "Pinging in waves without meaning to, because you message people one by one. Use a single group chat."
+   ]
+  },
+  {
+   "id": 33,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Land the first wave in five minutes",
+   "minutes": 10,
+   "offset_h": 0.0833,
+   "owner": "",
+   "status": "todo",
+   "agent": "Wave Watcher",
+   "why": "The feed makes up its mind early. Twenty posts in the same window look like news. Twenty posts spread over a week look like nothing.",
+   "todo": [
+    "At T+5m: your own quotes are up (the team, the named quote planned in step 23) along with the first five creators.",
+    "At T+10m: about twenty quotes.",
+    "Count them. Open the post's quotes and check them against your creator list.",
+    "A little spread is good. Arrivals over fifteen to twenty minutes look healthier than thirty posts in the same second."
+   ],
+   "pitfalls": [
+    "Relying on creators to remember. Someone has to watch the counter.",
+    "Thirty identical posts in sixty seconds (see step 17)."
+   ]
+  },
+  {
+   "id": 34,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Half the creators by 15 minutes, everyone within the hour",
+   "minutes": 20,
+   "offset_h": 0.25,
+   "owner": "",
+   "status": "todo",
+   "agent": "Wave Watcher",
+   "templates": [
+    "nudge"
+   ],
+   "why": "The wave has a tail. Creators who post in the first hour keep pushing the post while the feed is still deciding how far to take it.",
+   "todo": [
+    "T+15m: half or more have quoted. Message the rest, by name.",
+    "T+30m: anyone still missing gets a second nudge and a question: is something blocking you?",
+    "T+1h: everyone has posted. Open every quote: right angle, right link or code, your name spelled correctly.",
+    "Log each quote's URL and time next to the creator (step 25).",
+    "Ask the creators who have posted to boost each other's quotes."
+   ],
+   "pitfalls": [
+    "Not opening the quotes. A wrong link in a quote that takes off means a launch for someone else's URL.",
+    "Letting a delay slide without logging it. Delays happen. Log it anyway (step 15)."
+   ]
+  },
+  {
+   "id": 35,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Work the replies, yours and theirs",
+   "minutes": 60,
+   "offset_h": 0.5,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "three-replies"
+   ],
+   "why": "Replies are where a launch turns into conversations, and conversations are what the feed carries furthest.",
+   "todo": [
+    "Answer every reply under your post. A real answer, not a thank-you emoji.",
+    "Reply under the creators' quotes too: that is where their followers discover you.",
+    "Start the reply plan from step 26: the first ten replies in other threads go out now, the rest through the day.",
+    "Ask a question back whenever you can. A reply that gets a reply counts double."
+   ],
+   "pitfalls": [
+    "Liking replies without answering them.",
+    "Six replies to a troll. Reply once, then let it go.",
+    "Pasting the same reply to twenty people."
+   ]
+  },
+  {
+   "id": 36,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Give the launch a second beat",
+   "minutes": 20,
+   "offset_h": 1,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "second-beat"
+   ],
+   "why": "After an hour, the first wave has been seen. A second post about the same launch reaches those who missed it and gives everyone else a reason to come back.",
+   "todo": [
+    "Quote your own launch post with something new: a first number, a behind-the-scenes clip, the best reply you got.",
+    "Ask two or three creators whose quote did well to add a follow-up under theirs.",
+    "The next morning, post the same video on LinkedIn. unfair.so's working assumption: a video that won on X does about as well there.",
+    "Only one more post that day. The quiet rule from step 4 still holds for everything else."
+   ],
+   "pitfalls": [
+    "Reposting the launch post itself. A quote with something new travels; a repost of your own post doesn't.",
+    "Three follow-ups in the same afternoon."
+   ]
+  },
+  {
+   "id": 37,
+   "phase": "Launch day (T−3h to T+2h)",
+   "title": "Stay online for two hours",
+   "minutes": 120,
+   "offset_h": 2,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "engager-dm"
+   ],
+   "why": "The founder being there is the difference between a post and a launch. The people replying are the warmest contacts of your week, and they are here right now.",
+   "todo": [
+    "Block two hours. No calls.",
+    "Answer everything, under your post and under the quotes.",
+    "Follow back everyone who engages and looks like your ideal buyer.",
+    "Move the warmest ones to DMs while they are still watching: a thank-you, a question, the link.",
+    "Keep the post pinned for at least 24 hours."
+   ],
+   "pitfalls": [
+    "Posting, then leaving for a call.",
+    "Only answering the nice replies.",
+    "Unpinning that same evening."
+   ]
+  },
+  {
+   "id": 38,
+   "phase": "Wrap up and go again (T+1d to T+3d)",
+   "title": "Check every creator post is still up",
+   "minutes": 45,
+   "offset_h": 24,
+   "owner": "",
+   "status": "todo",
+   "templates": [
+    "thank-you"
+   ],
+   "why": "You are paying for posts that stay. A day later, some have been deleted, and a few went out with the wrong link.",
+   "todo": [
+    "Open every quote URL logged in the sheet.",
+    "Still up? Right angle? Right link or code?",
+    "Pay the ones that pass. For the others, ask before you decide.",
+    "One line per creator in the creator log: how the quote did, rebook or not.",
+    "Thank them and share the result. People post better for a launch they feel part of."
+   ],
+   "pitfalls": [
+    "Paying everyone the same evening without looking.",
+    "Never telling creators how it went."
+   ]
+  },
+  {
+   "id": 39,
+   "phase": "Wrap up and go again (T+1d to T+3d)",
+   "title": "Turn the people who engaged into a lead list",
+   "minutes": 60,
+   "offset_h": 48,
+   "owner": "",
+   "status": "todo",
+   "agent": "Lead Lister",
+   "templates": [
+    "lead-note"
+   ],
+   "prompts": [
+    "score-engagers"
+   ],
+   "why": "Everyone who liked, replied or quoted raised their hand. On most launches that is a few hundred names, and nobody writes them down.",
+   "todo": [
+    "Pull everyone who replied, quoted or reposted. Then everyone who liked.",
+    "For each one: name, job, company, X handle. Then LinkedIn and email when you can find them.",
+    "Score them against your ideal buyer and sort.",
+    "The top of the list gets a personal note this week. The rest goes into your CRM as \"people who saw you\".",
+    "New followers who look like your buyer get the same treatment."
+   ],
+   "pitfalls": [
+    "Looking at the view count and closing the tab.",
+    "Sending an automated sequence to the whole list. These people just discovered you: write to the first twenty yourself."
+   ]
+  },
+  {
+   "id": 40,
+   "phase": "Wrap up and go again (T+1d to T+3d)",
+   "title": "Run the numbers and book the next slot",
+   "minutes": 45,
+   "offset_h": 72,
+   "owner": "",
+   "status": "todo",
+   "agent": "Retro Analyst",
+   "templates": [
+    "one-page-retro"
+   ],
+   "why": "Every launch should teach you something that makes the next one better. That only happens if you write it down while it's fresh, and if there is a next one on the calendar.",
+   "todo": [
+    "Fill in the row of the launch log you opened in step 2: views, visits, sign-ups, paying customers, revenue, spend.",
+    "Put them next to the goals note from step 28. Where were you wrong?",
+    "Three lines: what worked, what didn't, what you change.",
+    "Pick the next angle from the backlog with what you just learned.",
+    "Confirm the next slot. It should already be on the calendar."
+   ],
+   "pitfalls": [
+    "No retro because the launch went well.",
+    "Treating views as the verdict. At unfair.so, a 690,000-view launch was rated one star out of five, and a 470,000-view one got five stars.",
+    "No next date. That is how a channel turns back into a one-off event."
+   ]
+  }
+ ]
+}
